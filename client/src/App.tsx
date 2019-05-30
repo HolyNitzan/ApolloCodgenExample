@@ -12,10 +12,10 @@ const client = new ApolloClient({
 
 const App: React.FC = () => {
   const [listOfBooks, setBooks] = useState<books>();
+
   useEffect(() => {
     client.query({query: booksQuery})
       .then((result: ApolloQueryResult<books>) => {
-        console.log(result.data)
         setBooks(result.data);
       });
   },[listOfBooks]);
